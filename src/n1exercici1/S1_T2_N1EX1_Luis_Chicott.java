@@ -5,15 +5,19 @@ public class S1_T2_N1EX1_Luis_Chicott {
 	public static void main(String[] args) {
 		
 	
-		Venta venta1 = new Venta("Harina", 10); 
-		Venta venta2 = new Venta("Aceite", 20);
+		Venta venta1 = new Venta(); 
 		 
 		 
-		 try {
-		 System.out.println(venta2.calcularTotal());
-		 } catch (Exception e) {
-			System.out.println(e.getMessage()); 
-		 }
-		 
+		//Venta venta2 = new Venta("Harina", 5); 
+		//Venta venta3 = new Venta("Aceite", 10); 
+		
+		  try {
+	            venta1.calcularTotal();
+	        } catch (VentaVaciaException e) {
+	            System.out.println(e.getMessage());
+	        }
+		  
+		  
+		 System.out.println(venta1.getPrecioTotal()); 
 	}
 }

@@ -5,41 +5,48 @@ import java.util.ArrayList;
 public class Venta {
 	
 	private static ArrayList<Producto> productos = new ArrayList<Producto>();  
-	private int precioTotal; 
+	private static int precioTotal; 
 	
+	
+	public Venta() {}; 
 	
 	public Venta(String nombre, int precio) {
 		productos.add(new Producto(nombre, precio)); 
-	}
+	}; 
 	
 	
-	public int calcularTotal() throws VentaVaciaException {
+	public int calcularTotal () throws VentaVaciaException{
 		
-		try {
-			
-			for(int i = 0; i <= productos.size(); i++) {
+		 if (productos.isEmpty()) {
+		        throw new VentaVaciaException("Para hacer una venta primero debes agregar productos");
+		 }else{
+
+			for(int i = 0; i < productos.size(); i++) {
 			
 				precioTotal =  productos.get(i).getPrecio() + precioTotal; 	
 			} 
-		
-		}catch (Exception e){
-			
-			
-			throw new VentaVaciaException("Error: la lista de productos está vacía."); 
 		}
 		
 		return precioTotal; 	
 	}
 	
+	public int getPrecioTotal() {
+		return precioTotal;
+	}
+	
+	 @Override
+	  public String toString() {
+	   StringBuilder sb = new StringBuilder();
+	    sb.append("Productos vendidos: \n");
+	    for (Producto producto : productos) {
+	        sb.append(producto.toString()).append("\n");       
+	    }
+	    return sb.toString();
+	 }
+
+
+	
 	
 }
 
- class VentaVaciaException extends Exception {
-	 
-	 public VentaVaciaException() {}
-	 
-	public VentaVaciaException(String mensaje_error) {
-		 super(mensaje_error); 
-	 } 
-	
- }
+ 

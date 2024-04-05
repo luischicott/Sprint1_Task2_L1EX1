@@ -3,8 +3,8 @@ package n1exercici1;
 
 public class Producto {
 
-	String nombre; 
-	int precio;
+	private String nombre; 
+	private int precio;
 	
 	public Producto(String nombre, int precio) {
 		this.nombre = nombre; 
@@ -29,4 +29,9 @@ public class Producto {
 	  public void setPrecio(int precio) {
 		  this.precio = precio;
 	  }
+	  
+	  @Override
+	    public String toString() {
+	        return "Producto: " + nombre + " Precio: " + precio;
+	    }
 }
