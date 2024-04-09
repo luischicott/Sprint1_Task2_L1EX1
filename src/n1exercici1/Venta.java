@@ -18,16 +18,20 @@ public class Venta {
 	public int calcularTotal () throws VentaVaciaException{
 		
 		 if (productos.isEmpty()) {
-		        throw new VentaVaciaException("Para hacer una venta primero debes agregar productos");
-		 }else{
+		        throw new VentaVaciaException("Para hacer una venta primero debes agregar productos.");
+		 }
 
-			for(int i = 0; i < productos.size(); i++) {
+		for(int i = 0; i < productos.size(); i++) {
 			
-				precioTotal =  productos.get(i).getPrecio() + precioTotal; 	
-			} 
-		}
+			precioTotal =  productos.get(i).getPrecio() + precioTotal; 	
+		} 
 		
 		return precioTotal; 	
+	}
+	
+	public int getPrecioDeUnProducto(int producto) {
+		
+		return productos.get(producto).getPrecio(); 
 	}
 	
 	public int getPrecioTotal() {

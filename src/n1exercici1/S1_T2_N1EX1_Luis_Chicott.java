@@ -12,12 +12,19 @@ public class S1_T2_N1EX1_Luis_Chicott {
 		//Venta venta3 = new Venta("Aceite", 10); 
 		
 		  try {
-	            venta1.calcularTotal();
+	           System.out.println(venta1.calcularTotal()); 
 	        } catch (VentaVaciaException e) {
 	            System.out.println(e.getMessage());
 	        }
 		  
 		  
-		 System.out.println(venta1.getPrecioTotal()); 
+		  
+		  try {
+				 System.out.println(venta1.getPrecioDeUnProducto(3));  
+	        } catch (IndexOutOfBoundsException e) {
+	            System.out.println(e.getMessage());
+	        }
+		  
+		 
 	}
 }
